@@ -1,5 +1,5 @@
 services:
-  pokeapi:
+  simuapi:
     build: . # Buildear el Dockerfile de esta carpeta (.)
     image: backend # Ponele "backend" de nombre a la imagen
     ports:
@@ -9,7 +9,7 @@ services:
       DB_PORT: "5432"
       DB_USER: "backend_user"
       DB_PASS: "password-super-secreta"
-      DB_NAME: "pokemon_db"
+      DB_NAME: "san_civilizacion_db"
 
   db:
     image: postgres:18
@@ -18,7 +18,7 @@ services:
     environment:
       POSTGRES_USER: "backend_user"
       POSTGRES_PASSWORD: "password-super-secreta"
-      POSTGRES_DB: "pokemon_db"
+      POSTGRES_DB: "san_civilizacion_db"
     volumes:
       - ./data:/var/lib/postgresql
       - ./app/db/schemas.sql:/docker-entrypoint-initdb.d/schemas.sql:ro

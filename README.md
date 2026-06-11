@@ -6,7 +6,7 @@ Pasos de hoyyyyy
 3. Armar esquema - check!
 4. Crear el repositorio - check!
 5. Clonarlo - check!
-6. Copiar lo que mando Manu Bilbo
+6. Copiar lo que mando Manu Bilbo - check!
 7. Hacerlo andar
 8. Limpiarlo / Adecuarlo a nuestra idea
 
