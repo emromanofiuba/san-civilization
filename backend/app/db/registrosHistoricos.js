@@ -5,3 +5,7 @@ export async function getAllRegistrosHistoricos() {
   return res.rows;
 }
 
+export async function getOneRegistroHistorico(id) {
+  const res = await db.query("SELECT * FROM registros_historicos WHERE id = $1", [id]);
+  return res.rows;
+}

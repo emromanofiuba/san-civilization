@@ -5,3 +5,7 @@ export async function getAllGruposEtarios() {
   return res.rows;
 }
 
+export async function getOneGrupoEtario(id) {
+  const res = await db.query("SELECT * FROM grupos_etarios WHERE id = $1", [id]);
+  return res.rows;
+}
