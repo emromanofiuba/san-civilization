@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllSociedades, getOneSociedad } from "../db/sociedades.js";
+import { getAllSociedades, getOneSociedad, createSociedad } from "../db/sociedades.js";
 
 export const endpointsSociedades = Router();
 
@@ -20,3 +20,19 @@ endpointsSociedades.get("/:id", async (req, res) => {
 
     res.json(sociedad);
 });
+
+/*
+ * curl -X POST -d '{"nombre":"Liliputendes"}' -H "Content-Type: application/json" http://localhost:8000/api/v1/sociedades
+ */
+endpointsSociedades.post("/", async (req, res) => {
+    const created = await createSociedad(
+        req.body.nombre
+    );
+
+    if (!created) {
+        res.sendStatus(500);
+        return;
+    }
+
+    res.status(201).json({message: "Sociedad creada"});
+})

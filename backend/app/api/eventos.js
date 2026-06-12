@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllEventos, getOneEvento } from "../db/eventos.js";
+import { getAllEventos, getOneEvento, createEvento } from "../db/eventos.js";
 
 export const endpointsEventos = Router();
 
@@ -20,3 +20,21 @@ endpointsEventos.get("/:id", async (req, res) => {
 
     res.json(evento);
 });
+
+endpointsEventos.post("/", async (req, res) => {
+    const created = await createEvento(
+        req.body.nombre,
+        req.body.grupoEtario,
+        req.body.anioDesde,
+        req.body.anioHasta,
+        req.body.natalidad,
+        req.body.mortalidad
+    );
+
+    if (!created) {
+        res.sendStatus(500);
+        return;
+    }
+
+    res.status(201).json({message: "Evento creado"});
+})

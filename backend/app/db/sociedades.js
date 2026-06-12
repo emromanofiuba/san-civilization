@@ -9,3 +9,8 @@ export async function getOneSociedad(id) {
   const res = await db.query("SELECT * FROM sociedades WHERE id = $1", [id]);
   return res.rows;
 }
+
+export async function createSociedad(nombre){
+  const res = await db.query("INSERT INTO sociedades (nombre) values ($1)", [nombre]);
+  return res.rowCount == 1;
+}
