@@ -22,7 +22,7 @@ endpointsGruposEtarios.get("/:id", async (req, res) => {
 });
 
 /*
- * curl -X POST -d '{"nombre":"jovenes","sociedad":1,"natalidadBase":10,"mortalidadBase":5}' -H "Content-Type: application/json" http://localhost:8000/api/v1/gruposEtarios
+ * curl -X POST -d '{"nombre":"jovenes","sociedad":1,"natalidadBase":10,"mortalidadBase":5}' -H "Content-Type: application/json" http://localhost:8000/api/v1/grupos-etarios
  */
 endpointsGruposEtarios.post("/", async (req, res) => {
     const created = await createGrupoEtario(

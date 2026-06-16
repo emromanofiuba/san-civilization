@@ -2,6 +2,7 @@ services:
   simuapi:
     build: . # Buildear el Dockerfile de esta carpeta (.)
     image: backend # Ponele "backend" de nombre a la imagen
+    command: npx nodemon app.js
     ports:
       - "8000:8000"
     environment:
@@ -10,6 +11,9 @@ services:
       DB_USER: "backend_user"
       DB_PASS: "password-super-secreta"
       DB_NAME: "san_civilizacion_db"
+    volumes:
+      - ./app:/app
+      - /app/node_modules
 
   db:
     image: postgres:18
