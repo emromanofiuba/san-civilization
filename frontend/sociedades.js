@@ -1,8 +1,9 @@
-async function unaFuncion(limit, offset) {
-    // const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
-    // const response = await fetch(url);
-    // const data = await response.json();
+async function getAllSociedades() {
+    const url = `http://localhost:8000/api/v1/sociedades`;
+    const response = await fetch(url);
+    const data = await response.json();
 
+    console.log(data);
     // const pokemones = data.results;
 
     // const listaPokemones = document.getElementById("pokemon-list");
@@ -18,3 +19,5 @@ async function unaFuncion(limit, offset) {
     //     listaPokemones.appendChild(unLi);
     // });
 }
+
+getAllSociedades();

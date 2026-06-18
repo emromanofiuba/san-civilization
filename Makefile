@@ -1,7 +1,7 @@
 run-front:
-	cd frontend && npx http-server -p 8080
+	cd frontend && npx http-server -p 8080 --cors
 
 run-back:
-	cd backend && docker compose up -d
+	cd backend && docker compose up
 
 run: run-back run-front

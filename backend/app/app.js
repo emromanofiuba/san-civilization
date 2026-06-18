@@ -1,10 +1,15 @@
 import express from "express";
+import cors from "cors";
+
 import { endpointsSociedades } from "./api/sociedades.js";
 import { endpointsEventos } from "./api/eventos.js";
 import { endpointsGruposEtarios } from "./api/gruposEtarios.js";
 import { endpointsRegistrosHistoricos } from "./api/registrosHistoricos.js";
 
+
 const app = express();
+app.use(cors()); 
+
 const port = 8000;
 
 app.use(express.json());

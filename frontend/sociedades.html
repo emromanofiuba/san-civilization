@@ -10,7 +10,7 @@
     <div class="container">
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item"><strong>San Civilization</strong></a>
+                <a class="navbar-item" href="index.html"><strong>San Civilization</strong></a>
 
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
@@ -22,7 +22,7 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                <a class="navbar-item" href="sociedades.html">Sociedades</a>
+                <a class="navbar-item is-active">Sociedades</a>
                 <a class="navbar-item">Eventos</a>
                 <a class="navbar-item">Grupos etarios</a>
                 <a class="navbar-item">Registros historicos</a>
@@ -31,28 +31,32 @@
         </nav>
         <section class="hero">
             <div class="hero-body">
-                <p class="title">San Civilization</p>
-                <p class="subtitle">El primer juego de simulación de sociedades totalmente original y que te va a volar la cabeza! Jugalo!</p>
+                <p class="title">Sociedades</p>
+            
+                <table class="table is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombres</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>Cuervos</td>
+                            <td>
+                                <button class="button is-small is-info">Ver</button>
+                                <button class="button is-small is-warning">Editar</button>
+                                <button class="button is-small is-danger">Borrar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
-        <section class="section is-medium">
-            <div class="fixed-grid has-4-cols">
-                <div class="grid">
-                    <div class="cell">
-                        <a href="sociedades.html" class="button is-large is-danger">Sociedades</a>
-                    </div>
-                    <div class="cell">
-                        <button class="button is-large is-info">Eventos</button>
-                    </div>
-                    <div class="cell">
-                        <button class="button is-large is-warning">Grupos Etarios</button>
-                    </div>
-                    <div class="cell">
-                        <button class="button is-large is-success">Registros Históricos</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
         <footer class="footer">
             <div class="content has-text-centered">
                 <p>
@@ -62,5 +66,6 @@
             </div>
         </footer>
     </div>
+    <script src="sociedades.js"></script>
   </body>
 </html>
