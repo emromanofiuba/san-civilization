@@ -6,8 +6,8 @@ export async function getAllSociedades() {
 }
 
 export async function getOneSociedad(id) {
-  const res = await db.query("SELECT * FROM sociedades WHERE id = $1", [id]);
-  return res.rows;
+  const res = await db.query("SELECT * FROM sociedades WHERE id = $1 limit 1", [id]);
+  return res.rows[0];
 }
 
 export async function createSociedad(nombre){

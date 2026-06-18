@@ -22,7 +22,7 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                <a class="navbar-item is-active">Sociedades</a>
+                <a href="sociedades.html" class="navbar-item is-active">Sociedades</a>
                 <a class="navbar-item">Eventos</a>
                 <a class="navbar-item">Grupos etarios</a>
                 <a class="navbar-item">Registros historicos</a>
@@ -31,24 +31,21 @@
         </nav>
         <section class="hero">
             <div class="hero-body">
-                <p class="title">Sociedades</p>
-            
-                <table class="table is-fullwidth">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombres</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-sociedades">
-                        <tr>
-                            <th>...</th>
-                            <td>...</td>
-                            <td>...</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <p class="title">Sociedad</p>
+                <div id="sociedad-data">
+                    <div class="field">
+                        <label class="label">Id</label>
+                        <div class="control">
+                            <p id="sociedad-id"></p>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <p id="sociedad-nombre"></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -61,6 +58,6 @@
             </div>
         </footer>
     </div>
-    <script src="sociedades.js"></script>
+    <script src="sociedad.js"></script>
   </body>
 </html>
