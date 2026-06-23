@@ -22,29 +22,39 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                <a href="sociedades.html" class="navbar-item is-active">Sociedades</a>
+                <a href="sociedades.html" class="navbar-item">Sociedades</a>
                 <a href="eventos.html" class="navbar-item">Eventos</a>
-                <a class="navbar-item">Grupos etarios</a>
-                <a href="registros-historicos.html" class="navbar-item">Registros historicos</a>
+                <a href="grupos-etarios.html" class="navbar-item">Grupos etarios</a>
+                <a href="registros-historicos.html" class="navbar-item is-active">Registros historicos</a>
                 </div>
             </div>
         </nav>
         <section class="hero">
             <div class="hero-body">
-                <p class="title">Sociedad</p>
-                <div id="sociedad-data">
+                <p class="title">Empezar sociedad</p>
+                <div id="empezar-sociedad-data">
                     <div class="field">
-                        <label class="label">Nombre</label>
+                        <label class="label">Sociedad</label>
                         <div class="control">
-                            <input id="sociedad-nombre" class="input" type="text" placeholder="Nombre de la sociedad">
+                            <div class="select">
+                                <select id="sociedades-select">
+                                </select>
+                            </div>
                             <span id="error" class="has-text-danger"></span>
                         </div>
                     </div>
-                    <button onclick="nuevaSociedad()" class="button is-primary">Guardar</button>
+                    <div class="field">
+                        <label class="label">Año de inicio</label>
+                        <div class="control">
+                            <input id="anio-inicio" class="input" type="text" placeholder="Año en que empieza la sociedad">
+                            <span id="error" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                    <button onclick="iniciarSociedad()" class="button is-primary">Empezar</button>
                 </div>
             </div>
         </section>
-        
+
         <footer class="footer">
             <div class="content has-text-centered">
                 <p>
@@ -54,6 +64,9 @@
             </div>
         </footer>
     </div>
-    <script src="sociedades.js"></script>
+    <script src="registrosHistoricos.js"></script>
+    <script>
+        popularSociedades();
+    </script>
   </body>
 </html>
