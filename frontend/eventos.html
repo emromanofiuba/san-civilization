@@ -22,33 +22,47 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                <a href="sociedades.html" class="navbar-item is-active">Sociedades</a>
-                <a href="eventos.html" class="navbar-item">Eventos</a>
-                <a class="navbar-item">Grupos etarios</a>
+                <a href="sociedades.html" class="navbar-item">Sociedades</a>
+                <a href="eventos.html" class="navbar-item is-active">Eventos</a>
+                <a href="grupos-etarios.html" class="navbar-item">Grupos etarios</a>
                 <a class="navbar-item">Registros historicos</a>
                 </div>
             </div>
         </nav>
         <section class="hero">
             <div class="hero-body">
-                <p class="title">Sociedad</p>
-                <div id="sociedad-data">
-                    <div class="field">
-                        <label class="label">Id</label>
-                        <div class="control">
-                            <p id="sociedad-id"></p>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Name</label>
-                        <div class="control">
-                            <p id="sociedad-nombre"></p>
-                        </div>
-                    </div>
-                </div>
+                <p class="title">Eventos</p><a href="evento-nuevo.html" class="button is-primary">Nuevo</a>
+                <span id="error"></span>
+
+                <table class="table is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Grupo Etario</th>
+                            <th>Año Desde</th>
+                            <th>Año Hasta</th>
+                            <th>Natalidad</th>
+                            <th>Mortalidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-eventos">
+                        <tr>
+                            <th>...</th>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
-        
+
         <footer class="footer">
             <div class="content has-text-centered">
                 <p>
@@ -58,9 +72,9 @@
             </div>
         </footer>
     </div>
-    <script src="sociedades.js"></script>
+    <script src="eventos.js"></script>
     <script>
-        getSociedad();
+        getAllEventos();
     </script>
   </body>
 </html>

@@ -23,53 +23,66 @@
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
                 <a href="sociedades.html" class="navbar-item">Sociedades</a>
-                <a href="eventos.html" class="navbar-item">Eventos</a>
-                <a href="grupos-etarios.html" class="navbar-item is-active">Grupos etarios</a>
+                <a href="eventos.html" class="navbar-item is-active">Eventos</a>
+                <a href="grupos-etarios.html" class="navbar-item">Grupos etarios</a>
                 <a class="navbar-item">Registros historicos</a>
                 </div>
             </div>
         </nav>
         <section class="hero">
             <div class="hero-body">
-                <p class="title">Grupo Etario</p>
-                <div id="grupo-etario-data">
+                <p class="title">Evento</p>
+                <div id="evento-data">
                     <div class="field">
                         <label class="label">Nombre</label>
                         <div class="control">
-                            <input id="grupo-etario-nombre" class="input" type="text" placeholder="Nombre del grupo etario">
+                            <input id="evento-nombre" class="input" type="text" placeholder="Nombre del evento">
                             <span id="error" class="has-text-danger"></span>
                         </div>
                     </div>
                     <div class="field">
-                        <label class="label">Sociedad</label>
+                        <label class="label">Grupo Etario</label>
                         <div class="control">
-                            <!-- <input id="grupo-etario-sociedad" class="input" type="text" placeholder="Sociedad del grupo etario"> -->
                             <div class="select">
-                                <select id="sociedades-select">
+                                <select id="grupos-etarios-select">
                                 </select>
                             </div>
                             <span id="error" class="has-text-danger"></span>
                         </div>
                     </div>
                     <div class="field">
-                        <label class="label">Natalidad base</label>
+                        <label class="label">Año desde</label>
                         <div class="control">
-                            <input id="grupo-etario-natalidad-base" class="input" type="text" placeholder="Natalidad base del grupo etario">
+                            <input id="evento-anio-desde" class="input" type="text" placeholder="Año en que comienza el evento">
+                            <span id="error" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Año hasta</label>
+                        <div class="control">
+                            <input id="evento-anio-hasta" class="input" type="text" placeholder="Año en que termina el evento">
+                            <span id="error" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Natalidad</label>
+                        <div class="control">
+                            <input id="evento-natalidad" class="input" type="text" placeholder="Modificación de la natalidad">
                             <span id="error" class="has-text-danger"></span>
                         </div>
                     </div>
                     <div class="field">
                         <label class="label">Mortalidad</label>
                         <div class="control">
-                            <input id="grupo-etario-mortalidad-base" class="input" type="text" placeholder="Mortalidad base del grupo etario">
+                            <input id="evento-mortalidad" class="input" type="text" placeholder="Modificación de la mortalidad">
                             <span id="error" class="has-text-danger"></span>
                         </div>
                     </div>
-                    <button onclick="nuevoGrupoEtario()" class="button is-primary">Guardar</button>
+                    <button onclick="nuevoEvento()" class="button is-primary">Guardar</button>
                 </div>
             </div>
         </section>
-        
+
         <footer class="footer">
             <div class="content has-text-centered">
                 <p>
@@ -79,9 +92,9 @@
             </div>
         </footer>
     </div>
-    <script src="gruposEtarios.js"></script>
+    <script src="eventos.js"></script>
     <script>
-        popularSociedades();
+        popularGruposEtarios();
     </script>
   </body>
 </html>

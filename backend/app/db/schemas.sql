@@ -21,7 +21,7 @@ CREATE TABLE registros_historicos (
 
 CREATE TABLE eventos (
     id SERIAL PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL
+    nombre VARCHAR(100) NOT NULL,
     grupo_etario_id INT NOT NULL REFERENCES grupos_etarios,
     anio_desde INT NOT NULL,
     anio_hasta INT NOT NULL,
