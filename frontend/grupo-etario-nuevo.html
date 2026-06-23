@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>San Civilization</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+</head>
+  <body>
+    <div class="container">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html"><strong>San Civilization</strong></a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                <a href="sociedades.html" class="navbar-item">Sociedades</a>
+                <a class="navbar-item">Eventos</a>
+                <a href="grupos-etarios.html" class="navbar-item is-active">Grupos etarios</a>
+                <a class="navbar-item">Registros historicos</a>
+                </div>
+            </div>
+        </nav>
+        <section class="hero">
+            <div class="hero-body">
+                <p class="title">Grupo Etario</p>
+                <div id="grupo-etario-data">
+                    <div class="field">
+                        <label class="label">Nombre</label>
+                        <div class="control">
+                            <input id="grupo-etario-nombre" class="input" type="text" placeholder="Nombre del grupo etario">
+                            <span id="error" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Sociedad</label>
+                        <div class="control">
+                            <!-- <input id="grupo-etario-sociedad" class="input" type="text" placeholder="Sociedad del grupo etario"> -->
+                            <div class="select">
+                                <select id="sociedades-select">
+                                </select>
+                            </div>
+                            <span id="error" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Natalidad base</label>
+                        <div class="control">
+                            <input id="grupo-etario-natalidad-base" class="input" type="text" placeholder="Natalidad base del grupo etario">
+                            <span id="error" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Mortalidad</label>
+                        <div class="control">
+                            <input id="grupo-etario-mortalidad-base" class="input" type="text" placeholder="Mortalidad base del grupo etario">
+                            <span id="error" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                    <button onclick="nuevoGrupoEtario()" class="button is-primary">Guardar</button>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                <strong>San Civilization</strong> hecho por <a target="_blank" href="https://intro-camejo.com.ar/">Intro Camejo</a>.
+                Por favor, no copiar, te estamos viendo!.
+                </p>
+            </div>
+        </footer>
+    </div>
+    <script src="gruposEtarios.js"></script>
+    <script>
+        popularSociedades();
+    </script>
+  </body>
+</html>

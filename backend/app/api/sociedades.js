@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllSociedades, getOneSociedad, createSociedad } from "../db/sociedades.js";
+import { getAllSociedades, getOneSociedad, createSociedad, deleteSociedad } from "../db/sociedades.js";
 
 export const endpointsSociedades = Router();
 
@@ -25,6 +25,9 @@ endpointsSociedades.get("/:id", async (req, res) => {
  * curl -X POST -d '{"nombre":"Liliputendes"}' -H "Content-Type: application/json" http://localhost:8000/api/v1/sociedades
  */
 endpointsSociedades.post("/", async (req, res) => {
+
+    // Hacer todas las validaciones!!
+
     const created = await createSociedad(
         req.body.nombre
     );
@@ -35,4 +38,21 @@ endpointsSociedades.post("/", async (req, res) => {
     }
 
     res.status(201).json({message: "Sociedad creada"});
+})
+
+endpointsSociedades.delete("/", async (req, res) => {
+
+    // Chequear que la sociedad existe
+
+    console.log(req.body);
+    const deleted = await deleteSociedad(
+        req.body.id
+    );
+
+    if (!deleted) {
+        res.sendStatus(500);
+        return;
+    }
+
+    res.status(200).json({ message: "Sociedad eliminada" });
 })

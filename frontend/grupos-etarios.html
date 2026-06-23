@@ -22,29 +22,35 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                <a class="navbar-item is-active">Sociedades</a>
+                <a href="sociedades.html" class="navbar-item">Sociedades</a>
                 <a class="navbar-item">Eventos</a>
-                <a href="grupos-etarios.html" class="navbar-item">Grupos etarios</a>
+                <a href="grupos-etarios.html" class="navbar-item is-active">Grupos etarios</a>
                 <a class="navbar-item">Registros historicos</a>
                 </div>
             </div>
         </nav>
         <section class="hero">
             <div class="hero-body">
-                <p class="title">Sociedades</p><a href="sociedad-nueva.html" class="button is-primary">Nueva</a>
+                <p class="title">Grupos Etarios</p><a href="grupo-etario-nuevo.html" class="button is-primary">Nuevo</a>
                 <span id="error"></span>
             
                 <table class="table is-fullwidth">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombres</th>
+                            <th>Nombre</th>
+                            <th>Sociedad</th>
+                            <th>Natalidad Base</th>
+                            <th>Mortalidad Base</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody id="table-sociedades">
+                    <tbody id="table-grupos-etarios">
                         <tr>
                             <th>...</th>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
                             <td>...</td>
                             <td>...</td>
                         </tr>
@@ -62,9 +68,9 @@
             </div>
         </footer>
     </div>
-    <script src="sociedades.js"></script>
+    <script src="gruposEtarios.js"></script>
     <script>
-        getAllSociedades();
+        getAllGruposEtarios();
     </script>
   </body>
 </html>

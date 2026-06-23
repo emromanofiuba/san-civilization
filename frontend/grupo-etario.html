@@ -22,27 +22,45 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                <a href="sociedades.html" class="navbar-item is-active">Sociedades</a>
+                <a href="sociedades.html" class="navbar-item">Sociedades</a>
                 <a class="navbar-item">Eventos</a>
-                <a class="navbar-item">Grupos etarios</a>
+                <a href="grupos-etarios.html" class="navbar-item is-active">Grupos etarios</a>
                 <a class="navbar-item">Registros historicos</a>
                 </div>
             </div>
         </nav>
         <section class="hero">
             <div class="hero-body">
-                <p class="title">Sociedad</p>
-                <div id="sociedad-data">
+                <p class="title">Grupo Etario</p>
+                <div id="grupo-etario-data">
                     <div class="field">
                         <label class="label">Id</label>
                         <div class="control">
-                            <p id="sociedad-id"></p>
+                            <p id="grupo-etario-id"></p>
                         </div>
                     </div>
                     <div class="field">
-                        <label class="label">Name</label>
+                        <label class="label">Nombre</label>
                         <div class="control">
-                            <p id="sociedad-nombre"></p>
+                            <p id="grupo-etario-nombre"></p>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Sociedad</label>
+                        <div class="control">
+                            <p id="grupo-etario-sociedad"></p>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Natalidad Base</label>
+                        <div class="control">
+                            <p id="grupo-etario-natalidad-base"></p>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Mortalidad Base</label>
+                        <div class="control">
+                            <p id="grupo-etario-mortalidad-base"></p>
                         </div>
                     </div>
                 </div>
@@ -58,9 +76,9 @@
             </div>
         </footer>
     </div>
-    <script src="sociedades.js"></script>
+    <script src="gruposEtarios.js"></script>
     <script>
-        getSociedad();
+        getGrupoEtario();
     </script>
   </body>
 </html>

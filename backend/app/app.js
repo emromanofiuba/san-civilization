@@ -8,7 +8,14 @@ import { endpointsRegistrosHistoricos } from "./api/registrosHistoricos.js";
 
 
 const app = express();
-app.use(cors()); 
+
+const corsOptions = {
+  origin: '*', // Replace with your domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions)); 
 
 const port = 8000;
 

@@ -22,34 +22,26 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                <a class="navbar-item is-active">Sociedades</a>
+                <a href="sociedades.html" class="navbar-item is-active">Sociedades</a>
                 <a class="navbar-item">Eventos</a>
-                <a href="grupos-etarios.html" class="navbar-item">Grupos etarios</a>
+                <a class="navbar-item">Grupos etarios</a>
                 <a class="navbar-item">Registros historicos</a>
                 </div>
             </div>
         </nav>
         <section class="hero">
             <div class="hero-body">
-                <p class="title">Sociedades</p><a href="sociedad-nueva.html" class="button is-primary">Nueva</a>
-                <span id="error"></span>
-            
-                <table class="table is-fullwidth">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombres</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-sociedades">
-                        <tr>
-                            <th>...</th>
-                            <td>...</td>
-                            <td>...</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <p class="title">Sociedad</p>
+                <div id="sociedad-data">
+                    <div class="field">
+                        <label class="label">Nombre</label>
+                        <div class="control">
+                            <input id="sociedad-nombre" class="input" type="text" placeholder="Nombre de la sociedad">
+                            <span id="error" class="has-text-danger"></span>
+                        </div>
+                    </div>
+                    <button onclick="nuevaSociedad()" class="button is-primary">Guardar</button>
+                </div>
             </div>
         </section>
         
@@ -63,8 +55,5 @@
         </footer>
     </div>
     <script src="sociedades.js"></script>
-    <script>
-        getAllSociedades();
-    </script>
   </body>
 </html>

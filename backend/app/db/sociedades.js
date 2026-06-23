@@ -14,3 +14,8 @@ export async function createSociedad(nombre){
   const res = await db.query("INSERT INTO sociedades (nombre) values ($1)", [nombre]);
   return res.rowCount == 1;
 }
+
+export async function deleteSociedad(id) {
+  const res = await db.query("DELETE FROM sociedades WHERE id = ($1)", [id]);
+  return res.rowCount == 1;
+}

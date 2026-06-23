@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllGruposEtarios, getOneGrupoEtario, createGrupoEtario } from "../db/gruposEtarios.js";
+import { getAllGruposEtarios, getOneGrupoEtario, createGrupoEtario, deleteGrupoEtario } from "../db/gruposEtarios.js";
 
 export const endpointsGruposEtarios = Router();
 
@@ -26,7 +26,7 @@ endpointsGruposEtarios.get("/:id", async (req, res) => {
  */
 endpointsGruposEtarios.post("/", async (req, res) => {
     const created = await createGrupoEtario(
-        req.body.nombre, req.body.sociedad, req.body.natalidadBase, req.body.mortalidadBase
+        req.body.nombre, req.body.sociedadId, req.body.natalidadBase, req.body.mortalidadBase
     );
 
     if (!created) {
@@ -35,4 +35,21 @@ endpointsGruposEtarios.post("/", async (req, res) => {
     }
 
     res.status(201).json({message: "Grupo Etario creado"});
+})
+
+endpointsGruposEtarios.delete("/", async (req, res) => {
+
+    // Chequear que la sociedad existe
+
+    console.log(req.body);
+    const deleted = await deleteGrupoEtario(
+        req.body.id
+    );
+
+    if (!deleted) {
+        res.sendStatus(500);
+        return;
+    }
+
+    res.status(200).json({ message: "Grupo Etario eliminado" });
 })
