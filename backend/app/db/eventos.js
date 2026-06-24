@@ -26,7 +26,7 @@ export async function deleteEvento(id) {
 
 export async function getModificaciones(grupoEtarioId, anio) {
 
-  const res = await db.query("select COALESCE(sum(natalidad),0) natalidad, COALESCE(sum(mortalidad),0) mortalidad " + 
+  const res = await db.query("select COALESCE(sum(natalidad),0)::int natalidad, COALESCE(sum(mortalidad),0)::int mortalidad " +
   "from eventos " + 
   "where grupo_etario_id = $1 " + 
   "and $2 between anio_desde and anio_hasta", [grupoEtarioId, anio]);
