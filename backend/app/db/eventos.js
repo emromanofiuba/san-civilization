@@ -23,3 +23,12 @@ export async function deleteEvento(id) {
   const res = await db.query("DELETE FROM eventos WHERE id = ($1)", [id]);
   return res.rowCount == 1;
 }
+
+export async function getModificaciones(grupoEtarioId, anio) {
+
+  const res = await db.query("select COALESCE(sum(natalidad),0) natalidad, COALESCE(sum(mortalidad),0) mortalidad " + 
+  "from eventos " + 
+  "where grupo_etario_id = $1 " + 
+  "and $2 between anio_desde and anio_hasta", [grupoEtarioId, anio]);
+  return res.rows[0];
+}

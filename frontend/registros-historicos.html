@@ -31,7 +31,10 @@
         </nav>
         <section class="hero">
             <div class="hero-body">
-                <p class="title">Registros Históricos</p><a href="empezar-sociedad.html" class="button is-primary">Empezar sociedad</a>
+                <p class="title">Registros Históricos</p>
+                <a href="empezar-sociedad.html" class="button is-primary">Empezar sociedad</a>
+                <button onclick="avanzarUnAnio()" class="button is-info">Avanzar un año</button>
+                
                 <span id="error"></span>
 
                 <table class="table is-fullwidth">
@@ -69,6 +72,23 @@
     <script src="registrosHistoricos.js"></script>
     <script>
         getAllRegistrosHistoricos();
+
+        async function avanzarUnAnio(){
+            const response = await fetch(`http://localhost:8000/api/v1/simular`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({})
+            });
+
+            if (response.status == 200) {
+                getAllRegistrosHistoricos();
+            } else {
+                const error = document.getElementById("error");
+                error.textContent = response.statusText;
+            }
+        }
     </script>
   </body>
 </html>

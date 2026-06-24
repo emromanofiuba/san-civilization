@@ -28,3 +28,12 @@ export async function iniciarSociedad(sociedad, anio) {
 
   return res.rowCount > 0;
 }
+
+export async function getLastRegistroHistorico(grupoEtario) {
+  const res = await db.query(
+    "select * from registros_historicos " + 
+      "where grupo_etario_id = $1 " + 
+      "order by anio desc " + 
+      "limit 1", [grupoEtario]);
+  return res.rows[0];
+}
