@@ -5,38 +5,44 @@ import { getModificaciones } from "../db/eventos.js";
 
 export const endpointsSimulacion = Router();
 
-endpointsSimulacion.post("/", async (req, res) => {
-  console.log("hola dewsde el backend");
+// Cota de seguridad para no encolar una simulacion infinita desde el frontend
+const MAX_ANIOS_POR_REQUEST = 1000;
 
-  // Agarrar todos los grupos etarios LISTO! Aprobado por Chaian
-  // para cada grupo etario, busco su ultimo registro historico LISTO! Aprobado por Chaian
-  // hago la cuenta de la cantidad LISTO! Aprobado por Chaian
-  // nueva_cantidad = cantidad_vieja + natalidad_base - mortalidad_base LISTO! Aprobado por Chaian
-  // anio = anio anterior + 1 LISTO! Aprobado por Chaian
-  // inserto la fila LISTO! Aprobado por Chaian
-
+// Avanza un anio TODAS las sociedades: para cada grupo etario toma su ultimo
+// registro historico y calcula la nueva cantidad de habitantes.
+// nueva_cantidad = cantidad_vieja + natalidad_base + natalidad_eventos - mortalidad_base - mortalidad_eventos
+async function avanzarUnAnio() {
   const gruposEtarios = await getAllGruposEtarios();
 
   for (let i = 0; i < gruposEtarios.length; i++) {
-    const iltimiRigistriHistirici = await getLastRegistroHistorico(gruposEtarios[i].id);
-    
-    if (iltimiRigistriHistirici){
+    const ultimoRegistro = await getLastRegistroHistorico(gruposEtarios[i].id);
 
+    if (ultimoRegistro) {
       // obtener los eventos que modifican la natalidad y mortalidad de ese grupo etario
-      const modificacionesPorEventos = await getModificaciones(gruposEtarios[i].id, iltimiRigistriHistirici.anio);
+      const modificacionesPorEventos = await getModificaciones(gruposEtarios[i].id, ultimoRegistro.anio);
 
       const cantidadNueva = Math.max(
-        iltimiRigistriHistirici.cantidad
-        + gruposEtarios[i].natalidad_base 
+        ultimoRegistro.cantidad
+        + gruposEtarios[i].natalidad_base
         + modificacionesPorEventos.natalidad
         - gruposEtarios[i].mortalidad_base
         - modificacionesPorEventos.mortalidad
         , 0);
-      const anioNuevo = iltimiRigistriHistirici.anio + 1;
-      await createRegistroHistorico(iltimiRigistriHistirici.sociedad_id, iltimiRigistriHistirici.grupo_etario_id, cantidadNueva, anioNuevo);
+      const anioNuevo = ultimoRegistro.anio + 1;
+      await createRegistroHistorico(ultimoRegistro.sociedad_id, ultimoRegistro.grupo_etario_id, cantidadNueva, anioNuevo);
     }
-    
+  }
+}
+
+// POST / -> avanza la simulacion. Acepta {anios: N} para avanzar varios anios
+// de una; si no se manda, avanza 1 anio (compatible con el comportamiento anterior).
+endpointsSimulacion.post("/", async (req, res) => {
+  const aniosPedidos = Number(req.body?.anios) || 1;
+  const aniosAAvanzar = Math.max(1, Math.min(aniosPedidos, MAX_ANIOS_POR_REQUEST));
+
+  for (let i = 0; i < aniosAAvanzar; i++) {
+    await avanzarUnAnio();
   }
 
-  res.status(200).json({});
+  res.status(200).json({ aniosAvanzados: aniosAAvanzar });
 });

@@ -17,32 +17,34 @@ async function getAllGruposEtarios() {
         const rowNatalidadBase = document.createElement("td");
         const rowMortalidadBase = document.createElement("td");
         const rowAcciones = document.createElement("td");
-        
+        rowAcciones.className = "acciones has-text-right";
+
         rowId.textContent = grupoEtario.id;
         rowNombre.textContent = grupoEtario.nombre;
         rowSociedad.textContent = grupoEtario.sociedad;
         rowNatalidadBase.textContent = grupoEtario.natalidad_base;
         rowMortalidadBase.textContent = grupoEtario.mortalidad_base;
-        
+        rowNatalidadBase.className = "has-text-right";
+        rowMortalidadBase.className = "has-text-right";
+
+        const grupoBotones = document.createElement("div");
+        grupoBotones.className = "buttons is-right";
+
         const botonVer = document.createElement("a");
-        botonVer.className = "button is-small is-info";
-        botonVer.textContent = "Ver";
+        botonVer.className = "button is-small is-info is-light";
+        botonVer.innerHTML = '<span class="icon"><i class="fas fa-eye"></i></span><span>Ver</span>';
         botonVer.href = `grupo-etario.html?id=${grupoEtario.id}`;
 
-        const botonEditar = document.createElement("a");
-        botonEditar.className = "button is-small is-warning";
-        botonEditar.textContent = "Editar";
-
         const botonEliminar = document.createElement("button");
-        botonEliminar.className = "button is-small is-danger";
-        botonEliminar.textContent = "Eliminar";
+        botonEliminar.className = "button is-small is-danger is-light";
+        botonEliminar.innerHTML = '<span class="icon"><i class="fas fa-trash"></i></span><span>Eliminar</span>';
         botonEliminar.addEventListener('click', () => {
             deleteGrupoEtario(grupoEtario.id);
         });
 
-        rowAcciones.appendChild(botonVer);
-        rowAcciones.appendChild(botonEditar);
-        rowAcciones.appendChild(botonEliminar);
+        grupoBotones.appendChild(botonVer);
+        grupoBotones.appendChild(botonEliminar);
+        rowAcciones.appendChild(grupoBotones);
 
         row.appendChild(rowId);
         row.appendChild(rowNombre);

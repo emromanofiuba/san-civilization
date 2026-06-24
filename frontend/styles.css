@@ -1,0 +1,138 @@
+/* ===========================================================
+   San Civilization — tema y ajustes sobre Bulma
+   =========================================================== */
+
+:root {
+    /* Paleta principal: índigo profundo con acento esmeralda */
+    --bulma-primary-h: 245deg;
+    --bulma-primary-s: 58%;
+    --bulma-primary-l: 56%;
+
+    --bulma-link-h: 245deg;
+    --bulma-link-s: 58%;
+    --bulma-link-l: 56%;
+
+    --bulma-family-primary: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --app-bg: #f4f5fb;
+    --app-border: #e6e8f2;
+}
+
+html {
+    background-color: var(--app-bg);
+}
+
+body {
+    background:
+        radial-gradient(1200px 480px at 100% -10%, rgba(99, 102, 241, 0.10), transparent 60%),
+        radial-gradient(1000px 420px at -10% 0%, rgba(16, 185, 129, 0.08), transparent 55%),
+        var(--app-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* ---------- Navbar ---------- */
+.navbar.is-primary {
+    background-image: linear-gradient(110deg, hsl(245deg 58% 50%), hsl(258deg 62% 58%));
+    box-shadow: 0 2px 16px rgba(60, 50, 140, 0.25);
+}
+
+.navbar .navbar-item .icon {
+    margin-right: 0.4rem;
+}
+
+.navbar-brand .navbar-item:hover {
+    background-color: transparent !important;
+}
+
+/* ---------- Encabezado de página ---------- */
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.page-header .title {
+    margin-bottom: 0.25rem;
+}
+
+/* ---------- Cards ---------- */
+.card {
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(50, 50, 93, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(50, 50, 93, 0.14), 0 3px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- Box ---------- */
+.box {
+    border-radius: 14px;
+    border: 1px solid var(--app-border);
+    box-shadow: 0 6px 24px rgba(50, 50, 93, 0.06);
+}
+
+/* ---------- Tablas ---------- */
+.table thead th {
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: #6b7194;
+    border-bottom-width: 2px;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.table .acciones .button {
+    margin-right: 0.35rem;
+}
+
+/* ---------- Stat / definición ---------- */
+.stat-label {
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: #6b7194;
+    font-weight: 600;
+}
+
+.stat-value {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #363659;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    flex-shrink: 0;
+    background-color: #1f2138;
+    color: #c9cbe3;
+    margin-top: 3rem;
+}
+
+.footer a {
+    color: #b7b9ff;
+}
+
+/* ---------- Animación del dashboard ---------- */
+.card-content .progress {
+    margin-bottom: 0;
+}
+
+@keyframes pop-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#cards-sociedades .cell {
+    animation: pop-in 0.25s ease both;
+}

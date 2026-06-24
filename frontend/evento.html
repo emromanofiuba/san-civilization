@@ -1,93 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" data-theme="light">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>San Civilization</title>
+    <title>Evento — San Civilization</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
   <body>
-    <div class="container">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item" href="index.html"><strong>San Civilization</strong></a>
-
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+                <a class="navbar-item" href="index.html">
+                    <span class="icon"><i class="fas fa-earth-americas"></i></span>
+                    <strong>San Civilization</strong>
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="main-navbar">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </a>
             </div>
-
-            <div id="navbarBasicExample" class="navbar-menu">
+            <div id="main-navbar" class="navbar-menu">
                 <div class="navbar-start">
-                <a href="sociedades.html" class="navbar-item">Sociedades</a>
-                <a href="eventos.html" class="navbar-item is-active">Eventos</a>
-                <a href="grupos-etarios.html" class="navbar-item">Grupos etarios</a>
-                <a href="registros-historicos.html" class="navbar-item">Registros historicos</a>
+                    <a class="navbar-item" href="index.html"><span class="icon"><i class="fas fa-gauge-high"></i></span><span>Inicio</span></a>
+                    <a class="navbar-item" href="sociedades.html"><span class="icon"><i class="fas fa-users-rectangle"></i></span><span>Sociedades</span></a>
+                    <a class="navbar-item" href="grupos-etarios.html"><span class="icon"><i class="fas fa-people-group"></i></span><span>Grupos etarios</span></a>
+                    <a class="navbar-item is-active" href="eventos.html"><span class="icon"><i class="fas fa-bolt"></i></span><span>Eventos</span></a>
+                    <a class="navbar-item" href="registros-historicos.html"><span class="icon"><i class="fas fa-clock-rotate-left"></i></span><span>Registros históricos</span></a>
                 </div>
             </div>
-        </nav>
-        <section class="hero">
-            <div class="hero-body">
-                <p class="title">Evento</p>
-                <div id="evento-data">
-                    <div class="field">
-                        <label class="label">Id</label>
-                        <div class="control">
-                            <p id="evento-id"></p>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Nombre</label>
-                        <div class="control">
-                            <p id="evento-nombre"></p>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Grupo Etario</label>
-                        <div class="control">
-                            <p id="evento-grupo-etario"></p>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Año Desde</label>
-                        <div class="control">
-                            <p id="evento-anio-desde"></p>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Año Hasta</label>
-                        <div class="control">
-                            <p id="evento-anio-hasta"></p>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Natalidad</label>
-                        <div class="control">
-                            <p id="evento-natalidad"></p>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Mortalidad</label>
-                        <div class="control">
-                            <p id="evento-mortalidad"></p>
+        </div>
+    </nav>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-half-tablet is-one-third-desktop">
+                        <a href="eventos.html" class="button is-light mb-4">
+                            <span class="icon"><i class="fas fa-arrow-left"></i></span>
+                            <span>Volver a eventos</span>
+                        </a>
+
+                        <div class="card">
+                            <div class="card-content">
+                                <h1 class="title is-4">
+                                    <span class="icon-text">
+                                        <span class="icon has-text-primary"><i class="fas fa-bolt"></i></span>
+                                        <span>Evento</span>
+                                    </span>
+                                </h1>
+                                <div id="evento-data">
+                                    <table class="table is-fullwidth">
+                                        <tbody>
+                                            <tr>
+                                                <td class="stat-label">ID</td>
+                                                <td class="has-text-right stat-value" id="evento-id"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="stat-label">Nombre</td>
+                                                <td class="has-text-right stat-value" id="evento-nombre"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="stat-label">Grupo etario</td>
+                                                <td class="has-text-right stat-value" id="evento-grupo-etario"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="stat-label">Año desde</td>
+                                                <td class="has-text-right stat-value" id="evento-anio-desde"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="stat-label">Año hasta</td>
+                                                <td class="has-text-right stat-value" id="evento-anio-hasta"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="stat-label">Natalidad</td>
+                                                <td class="has-text-right stat-value" id="evento-natalidad"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="stat-label">Mortalidad</td>
+                                                <td class="has-text-right stat-value" id="evento-mortalidad"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+    </main>
 
-        <footer class="footer">
-            <div class="content has-text-centered">
-                <p>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
                 <strong>San Civilization</strong> hecho por <a target="_blank" href="https://intro-camejo.com.ar/">Intro Camejo</a>.
                 Por favor, no copiar, te estamos viendo!.
-                </p>
-            </div>
-        </footer>
-    </div>
+            </p>
+        </div>
+    </footer>
+
+    <script src="ui.js"></script>
     <script src="eventos.js"></script>
     <script>
         getEvento();

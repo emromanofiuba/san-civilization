@@ -1,66 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" data-theme="light">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>San Civilization</title>
+    <title>Inicio — San Civilization</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  </head>
   <body>
-    <div class="container">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item"><strong>San Civilization</strong></a>
-
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+                <a class="navbar-item" href="index.html">
+                    <span class="icon"><i class="fas fa-earth-americas"></i></span>
+                    <strong>San Civilization</strong>
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="main-navbar">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </a>
             </div>
-
-            <div id="navbarBasicExample" class="navbar-menu">
+            <div id="main-navbar" class="navbar-menu">
                 <div class="navbar-start">
-                <a class="navbar-item" href="sociedades.html">Sociedades</a>
-                <a href="eventos.html" class="navbar-item">Eventos</a>
-                <a class="navbar-item" href="grupos-etarios.html">Grupos etarios</a>
-                <a href="registros-historicos.html" class="navbar-item">Registros historicos</a>
+                    <a class="navbar-item is-active" href="index.html"><span class="icon"><i class="fas fa-gauge-high"></i></span><span>Inicio</span></a>
+                    <a class="navbar-item" href="sociedades.html"><span class="icon"><i class="fas fa-users-rectangle"></i></span><span>Sociedades</span></a>
+                    <a class="navbar-item" href="grupos-etarios.html"><span class="icon"><i class="fas fa-people-group"></i></span><span>Grupos etarios</span></a>
+                    <a class="navbar-item" href="eventos.html"><span class="icon"><i class="fas fa-bolt"></i></span><span>Eventos</span></a>
+                    <a class="navbar-item" href="registros-historicos.html"><span class="icon"><i class="fas fa-clock-rotate-left"></i></span><span>Registros históricos</span></a>
                 </div>
             </div>
-        </nav>
-        <section class="hero">
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero is-primary">
             <div class="hero-body">
-                <p class="title">San Civilization</p>
-                <p class="subtitle">El primer juego de simulación de sociedades totalmente original y que te va a volar la cabeza! Jugalo!</p>
-            </div>
-        </section>
-        <section class="section is-medium">
-            <div class="fixed-grid has-4-cols">
-                <div class="grid">
-                    <div class="cell">
-                        <a href="sociedades.html" class="button is-large is-danger">Sociedades</a>
-                    </div>
-                    <div class="cell">
-                        <button class="button is-large is-info">Eventos</button>
-                    </div>
-                    <div class="cell">
-                        <a href="grupos-etarios.html" class="button is-large is-warning">Grupos Etarios</a>
-                    </div>
-                    <div class="cell">
-                        <button class="button is-large is-success">Registros Históricos</button>
-                    </div>
+                <div class="container">
+                    <p class="title">
+                        <span class="icon-text">
+                            <span class="icon"><i class="fas fa-earth-americas"></i></span>
+                            <span>San Civilization</span>
+                        </span>
+                    </p>
+                    <p class="subtitle">El primer juego de simulación de sociedades totalmente original y que te va a volar la cabeza! Jugalo!</p>
                 </div>
             </div>
         </section>
-        <footer class="footer">
-            <div class="content has-text-centered">
-                <p>
+
+        <section class="section">
+            <div class="container">
+                <!-- Controles de simulación -->
+                <div class="box mb-5">
+                    <div class="level is-mobile">
+                        <div class="level-left">
+                            <div class="level-item">
+                                <div>
+                                    <p class="stat-label">Año observado</p>
+                                    <p class="title is-2" id="anio-observado">—</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="level-right">
+                            <div class="level-item">
+                                <div class="field has-addons mb-0">
+                                    <div class="control">
+                                        <input id="anios-a-avanzar" class="input" type="number" min="1" value="1" style="width: 6rem;">
+                                    </div>
+                                    <div class="control">
+                                        <button id="boton-avanzar" class="button is-primary">
+                                            <span class="icon"><i class="fas fa-forward-step"></i></span>
+                                            <span>Avanzar año(s)</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="error" class="has-text-danger mb-0"></p>
+                </div>
+
+                <!-- Resumen de sociedades (cards) -->
+                <h2 class="title is-4">
+                    <span class="icon-text">
+                        <span class="icon has-text-primary"><i class="fas fa-users-rectangle"></i></span>
+                        <span>Resumen de sociedades</span>
+                    </span>
+                </h2>
+                <div id="cards-sociedades" class="fixed-grid has-3-cols mb-6">
+                    <div class="grid"></div>
+                </div>
+
+                <!-- Progresión a lo largo del tiempo -->
+                <h2 class="title is-4">
+                    <span class="icon-text">
+                        <span class="icon has-text-primary"><i class="fas fa-chart-line"></i></span>
+                        <span>Progresión a lo largo del tiempo</span>
+                    </span>
+                </h2>
+                <div class="box mb-6">
+                    <canvas id="grafico-progresion" height="110"></canvas>
+                </div>
+
+                <!-- Animación / reproducción del histórico -->
+                <h2 class="title is-4">
+                    <span class="icon-text">
+                        <span class="icon has-text-primary"><i class="fas fa-film"></i></span>
+                        <span>Animación de la simulación</span>
+                    </span>
+                </h2>
+                <div class="box">
+                    <div class="level is-mobile mb-3">
+                        <div class="level-left">
+                            <div class="level-item">
+                                <button id="boton-play" class="button is-info">
+                                    <span class="icon"><i class="fas fa-play"></i></span>
+                                    <span>Reproducir</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="level-right">
+                            <div class="level-item">
+                                <span class="tag is-medium is-primary is-light">Año: <strong id="anio-animacion" class="ml-1">—</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    <input id="slider-anio" class="slider is-fullwidth" type="range" min="0" max="0" value="0" step="1" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
                 <strong>San Civilization</strong> hecho por <a target="_blank" href="https://intro-camejo.com.ar/">Intro Camejo</a>.
                 Por favor, no copiar, te estamos viendo!.
-                </p>
-            </div>
-        </footer>
-    </div>
+            </p>
+        </div>
+    </footer>
+
+    <script src="ui.js"></script>
+    <script src="index.js"></script>
+    <script>
+        iniciarDashboard();
+    </script>
   </body>
 </html>

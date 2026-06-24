@@ -1,67 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" data-theme="light">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>San Civilization</title>
+    <title>Sociedades — San Civilization</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
   <body>
-    <div class="container">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item" href="index.html"><strong>San Civilization</strong></a>
-
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+                <a class="navbar-item" href="index.html">
+                    <span class="icon"><i class="fas fa-earth-americas"></i></span>
+                    <strong>San Civilization</strong>
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="main-navbar">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </a>
             </div>
-
-            <div id="navbarBasicExample" class="navbar-menu">
+            <div id="main-navbar" class="navbar-menu">
                 <div class="navbar-start">
-                <a class="navbar-item is-active">Sociedades</a>
-                <a href="eventos.html" class="navbar-item">Eventos</a>
-                <a href="grupos-etarios.html" class="navbar-item">Grupos etarios</a>
-                <a href="registros-historicos.html" class="navbar-item">Registros historicos</a>
+                    <a class="navbar-item" href="index.html"><span class="icon"><i class="fas fa-gauge-high"></i></span><span>Inicio</span></a>
+                    <a class="navbar-item is-active" href="sociedades.html"><span class="icon"><i class="fas fa-users-rectangle"></i></span><span>Sociedades</span></a>
+                    <a class="navbar-item" href="grupos-etarios.html"><span class="icon"><i class="fas fa-people-group"></i></span><span>Grupos etarios</span></a>
+                    <a class="navbar-item" href="eventos.html"><span class="icon"><i class="fas fa-bolt"></i></span><span>Eventos</span></a>
+                    <a class="navbar-item" href="registros-historicos.html"><span class="icon"><i class="fas fa-clock-rotate-left"></i></span><span>Registros históricos</span></a>
                 </div>
             </div>
-        </nav>
-        <section class="hero">
-            <div class="hero-body">
-                <p class="title">Sociedades</p><a href="sociedad-nueva.html" class="button is-primary">Nueva</a>
-                <span id="error"></span>
-            
-                <table class="table is-fullwidth">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombres</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-sociedades">
-                        <tr>
-                            <th>...</th>
-                            <td>...</td>
-                            <td>...</td>
-                        </tr>
-                    </tbody>
-                </table>
+        </div>
+    </nav>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="level page-header is-mobile">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <div>
+                                <h1 class="title">
+                                    <span class="icon-text">
+                                        <span class="icon has-text-primary"><i class="fas fa-users-rectangle"></i></span>
+                                        <span>Sociedades</span>
+                                    </span>
+                                </h1>
+                                <p class="subtitle is-6 has-text-grey">Las civilizaciones de tu simulación</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <div class="level-item">
+                            <a href="sociedad-nueva.html" class="button is-primary">
+                                <span class="icon"><i class="fas fa-plus"></i></span>
+                                <span>Nueva sociedad</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <p id="error" class="has-text-danger mb-3"></p>
+
+                <div class="box">
+                    <table class="table is-fullwidth is-striped is-hoverable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th class="has-text-right">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-sociedades"></tbody>
+                    </table>
+                </div>
             </div>
         </section>
-        
-        <footer class="footer">
-            <div class="content has-text-centered">
-                <p>
+    </main>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
                 <strong>San Civilization</strong> hecho por <a target="_blank" href="https://intro-camejo.com.ar/">Intro Camejo</a>.
                 Por favor, no copiar, te estamos viendo!.
-                </p>
-            </div>
-        </footer>
-    </div>
+            </p>
+        </div>
+    </footer>
+
+    <script src="ui.js"></script>
     <script src="sociedades.js"></script>
     <script>
         getAllSociedades();

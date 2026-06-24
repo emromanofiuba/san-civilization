@@ -22,6 +22,8 @@ async function getAllRegistrosHistoricos() {
         rowGrupoEtario.textContent = registroHistorico.grupo_etario;
         rowAnio.textContent = registroHistorico.anio;
         rowCantidad.textContent = registroHistorico.cantidad;
+        rowAnio.className = "has-text-right";
+        rowCantidad.className = "has-text-right has-text-weight-semibold";
 
         row.appendChild(rowId);
         row.appendChild(rowSociedad);
